@@ -119,7 +119,7 @@ dialog[open]{animation:slide .22s ease-out}
 /* resume */
 #resume-view{padding:72px 0 96px;background:#c6d2f3}
 .rbox{border:3px solid var(--ink);background:#fff;min-height:420px;display:grid;box-shadow:10px 10px 0 var(--teal)}
-.rbox iframe{width:100%;height:80vh;border:0}
+.rbox iframe{width:100%;height:80vh;border:0}.pdfpages{width:100%;max-width:100%;overflow:hidden}.pdfpages canvas{display:block;width:100%;height:auto}.pdfpages canvas+canvas{border-top:3px solid var(--ink)}
 .empty{padding:40px;align-self:center}
 code{background:var(--lemon);padding:1px 6px;font-size:.9em}
 /* footer */
@@ -321,10 +321,10 @@ const SECTIONS=[
   TS("Design process",["I started by sourcing the hardware and finalizing it with the team before beginning the design.", "Next, I studied robotic arms already on the market, taking inspiration from their engineering and applying it to my own design.", "In CAD, I split each joint into its own subassembly. This broke the large assembly into manageable pieces, so each joint could be designed and checked in detail.", "With the assembly complete, I verified the payload by calculating the static and dynamic torque at each joint, using the moment of inertia, to confirm the servos could deliver the torque and speed our specs required. The calculations showed some joints were over their limits, so I went back to the design and cut weight wherever it was viable until every joint met spec.", "Once everything was verified, I worked with the vendor on the manufacturing method and material. I selected MJF printing in PA12-GB, one of the strongest 3D printing processes and materials, which gave us the strength our application needed without machined metal parts."]),
   {type:"gallery",columns:2,images:[{src:S(1,"subassemblies"),caption:"Each joint modelled as its own subassembly."},{src:S(1,"torque-calcs"),caption:"Static and dynamic torque calculations used to verify the payload."}]},
   TS("Setbacks and fixes",["Deflection: the team was concerned about how much the tip of the arm would deflect under load. I integrated steel shafts into the linkages, placing stiff material away from the centre axis, the same principle as an I-beam. This raised the linkages' stiffness and minimized deflection at the tip.", "Budget: cost was a major priority, since we wanted to offer a cheaper solution to the Western market. It took me several weeks to source hardware that met both our cost target and our required specs.", "Shipping delay: while preparing to show the arm at the Emerging Technologies Conference in Windsor, a fastener shipment was delayed. I contacted 20+ local vendors and fast-shipping suppliers with my BOM, sourced every required fastener in under a week, and finished the assembly before the conference."]),
-  {type:"gallery",columns:2,images:[{src:S(1,"steel-shafts"),caption:"Steel shafts integrated into the linkage to reduce tip deflection."},{src:S(1,"mjf-parts"),caption:"MJF-printed PA12-GB parts before assembly."}]},
+  {type:"gallery",columns:2,images:[{src:S(1,"steel-shafts"),caption:"Steel shafts integrated into the linkage to reduce tip deflection."},{src:S(1,"completed-arm"),caption:"The completed 4 DOF robotic arm."}]},
   TS("Final assembly and takeaways",["The result is a working 4 DOF robotic arm, taken from hardware sourcing through design, calculations and manufacturing to a finished assembly shown at the Emerging Technologies Conference in Windsor.", "I learned that there is much more to creating a product than designing the model. The project taught me the engineering behind my ideas, how to properly validate my calculations, and how to solve problems without restarting the project.", "It also showed me the work and challenges that come with procurement, and that having a quick backup plan is vital when a deadline is on the line."]),
   {type:"image",src:S(1,"demo-event"),caption:"The 4 DOF robotic arm with its dust cover at a demo.",width:"medium",align:"center"},
-  {type:"list",heading:"Tools and components",items:["CAD modelling", "Static and dynamic torque calculations", "Rotary servos with brakes", "Gearboxes", "Steel shafts", "MJF printing (PA12-GB)", "Procurement and vendor sourcing"]}],
+  {type:"list",heading:"Tools and components",items:["CAD modelling", "Torque calculations", "3D printing", "Procurement"]}],
 
  /* 2 */ ()=>[
   T("What it is",["I developed a desktop retro arcade cabinet powered by a Raspberry Pi 4, drawing design inspiration from classic 1980s machines with vibrant aesthetics and authentic arcade controls. Built within a $150 budget, the system emulates over 10 legacy consoles and supports a library of more than 2,500 games, balancing cost-efficient hardware integration with dependable performance."]),
@@ -506,8 +506,20 @@ document.addEventListener("click",e=>{
 pd.addEventListener("close",()=>{history.replaceState(null,"","#projects");lastBtn&&lastBtn.focus()});
 
 const R=SITE.resumePdf, dl=$("#dl");
+function phonePdf(){
+  const box=$("#rbox"), fallback=()=>{box.innerHTML=`<iframe src="${esc(R)}#view=FitH&toolbar=0&navpanes=0" title="Matteo Musso resume"></iframe>`};
+  box.innerHTML='<div class="pdfpages" role="img" aria-label="Matteo Musso resume"></div>';
+  const go=()=>{try{const lib=window.pdfjsLib;lib.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+    lib.getDocument(R).promise.then(async doc=>{const wrap=box.querySelector(".pdfpages");
+      for(let n=1;n<=doc.numPages;n++){const pg=await doc.getPage(n), w=wrap.clientWidth||box.clientWidth||340, v0=pg.getViewport({scale:1}),
+        sc=w/v0.width*Math.min(devicePixelRatio||1,3), v=pg.getViewport({scale:sc}), c=document.createElement("canvas");
+        c.width=Math.floor(v.width);c.height=Math.floor(v.height);wrap.appendChild(c);await pg.render({canvasContext:c.getContext("2d"),viewport:v}).promise}
+    }).catch(fallback)}catch(e){fallback()}};
+  if(window.pdfjsLib)return go();
+  const s=document.createElement("script");s.src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js";s.onload=go;s.onerror=fallback;document.head.appendChild(s);
+}
 function showResume(ok){
-  if(ok){dl.href=R;dl.setAttribute("download","Matteo-Musso-Resume.pdf");dl.removeAttribute("aria-disabled");$("#newtab").href=R;$("#newtab").hidden=false;$("#rbox").innerHTML=`<iframe src="${esc(R)}#view=FitH&toolbar=0&navpanes=0" title="Matteo Musso resume"></iframe>`}
+  if(ok){dl.href=R;dl.setAttribute("download","Matteo-Musso-Resume.pdf");dl.removeAttribute("aria-disabled");$("#newtab").href=R;$("#newtab").hidden=false;if(matchMedia("(max-width:760px)").matches)phonePdf();else $("#rbox").innerHTML=`<iframe src="${esc(R)}#view=FitH&toolbar=0&navpanes=0" title="Matteo Musso resume"></iframe>`}
   else{dl.href="#resume";dl.removeAttribute("download");dl.setAttribute("aria-disabled","true");$("#newtab").hidden=true;$("#rbox").innerHTML=`<div class="empty"><h3 style="font-size:26px;margin-bottom:10px">Resume not added yet</h3><p>Put your PDF in the <code>resume</code> folder and name it <code>Matteo-Musso-Resume.pdf</code>. It will show here and the Download button will work automatically.</p></div>`}}
 showResume(false);
 fetch(R,{method:"HEAD"}).then(r=>showResume(r.ok&&/pdf/i.test(r.headers.get("content-type")||""))).catch(()=>showResume(location.protocol==="file:"));
