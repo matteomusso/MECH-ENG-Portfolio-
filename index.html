@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Matteo Musso | Mechanical Engineering Student</title>
+<meta name="description" content="Portfolio of Matteo Musso, a mechanical engineering student working in mechanical design, robotics, automation, CAD and manufacturing.">
+<meta property="og:title" content="Matteo Musso | Mechanical Engineering Student">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500;9..40,700&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#f4ecdc;--ink:#1b1b1f;--cobalt:#1636c9;--orange:#e8571f;--teal:#0e8a80;--lemon:#ecd94a;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(64px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--cream);color:var(--ink);font:400 17px/1.6 "IBM Plex Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"DM Sans","IBM Plex Sans",sans-serif;font-weight:800;line-height:1.1;margin:0;letter-spacing:-.025em;overflow-wrap:break-word}
+a{color:inherit}img{max-width:100%;display:block}
+:focus-visible{outline:3px solid var(--lemon);outline-offset:3px;box-shadow:0 0 0 6px var(--ink)}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:var(--ink);color:var(--cream);padding:8px 12px;z-index:99}
+header.top{position:sticky;top:0;z-index:30;background:var(--ink);color:var(--cream);border-bottom:3px solid var(--lemon);padding-top:env(safe-area-inset-top,0px)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:800 20px "DM Sans",sans-serif;letter-spacing:-.02em}
+nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0;align-items:center}
+nav a{display:block;padding:6px 12px;text-decoration:none;font-size:15px;box-shadow:inset 0 0 0 var(--lemon);transition:box-shadow .15s,color .15s}
+nav a:hover{box-shadow:inset 0 -4px 0 var(--lemon)}
+nav a[aria-current="page"]{background:var(--lemon);color:var(--ink);font-weight:500}
+nav a.cta{background:var(--orange);color:var(--ink);font-weight:500;margin-left:10px;padding:8px 16px}
+nav a.cta:hover{background:var(--lemon);box-shadow:none}
+.menu{display:none;background:var(--cream);color:var(--cobalt);border:0;padding:8px 14px;font:500 15px inherit;font-family:inherit;cursor:pointer}
+@media(max-width:760px){.menu{display:block}nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--ink);border-bottom:3px solid var(--lemon)}nav.open{display:block}nav ul{flex-direction:column;align-items:stretch;padding:8px 24px 20px}nav a.cta{margin:10px 0 0;text-align:center}}
+/* hero */
+.hero{background:var(--cobalt);color:var(--cream);padding:48px 0 40px}
+.hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(46px,8vw,104px)}
+mark{background:var(--lemon);color:var(--ink);padding:0 .12em;margin:0 -.04em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.lead{max-width:44ch;margin:28px 0 32px;font-size:19px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 22px;text-decoration:none;font-weight:500;background:var(--cream);color:var(--ink);border:0;font:500 16px inherit;font-family:inherit;cursor:pointer;box-shadow:5px 5px 0 var(--ink);transition:transform .12s,box-shadow .12s,background .12s}
+.btn:hover{transform:translate(5px,5px);box-shadow:0 0 0 var(--ink);background:var(--lemon)}
+.btn.o{background:var(--orange)}
+.frame{position:relative;padding:0 0 28px 28px}
+.frame::before{content:"";position:absolute;inset:36px 36px 0 0;background:var(--orange)}
+.frame .circ{position:absolute;right:-30px;top:-34px;width:150px;height:150px;z-index:2}
+.frame .imgbox{position:relative;z-index:1;margin:0 0 0 0}
+.note{font-size:14px;margin-top:12px;opacity:.9}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr}.frame .circ{width:96px;height:96px}}
+/* images */
+.imgbox{background:var(--ink);overflow:hidden}
+.imgbox img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.ar-a{aspect-ratio:4/3}.ar-b{aspect-ratio:16/9}.ar-c{aspect-ratio:1/1}.ar-d{aspect-ratio:4/5}
+/* projects */
+#projects{padding:48px 0 72px}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:48px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(30px,4.8vw,56px)}
+.sec-head h2 span{color:var(--orange)}
+.sec-head p{max-width:38ch;margin:0}
+.pgrid{display:grid;grid-template-columns:repeat(12,1fr);gap:64px 40px;align-items:start}
+.proj{grid-column:span 6;display:block;text-align:left;background:none;border:0;padding:0;color:inherit;font:inherit;cursor:pointer;position:relative}
+.proj.s12{grid-column:span 12}.proj.s7{grid-column:span 7}.proj.s5{grid-column:span 5}
+.pimg{padding:18px;background:var(--c)}
+.pimg .imgbox{box-shadow:0 0 0 2px var(--ink)}
+.ptext{background:var(--cream);position:relative;padding:20px 0 0}
+.proj.s12 .ptext{width:min(520px,90%);margin:-90px 0 0 auto;padding:24px;box-shadow:8px 8px 0 var(--ink);background:var(--lemon)}
+.proj:hover .imgbox img{transform:scale(1.05)}
+.proj h3{font-size:clamp(26px,3.2vw,40px);margin:10px 0 8px}
+.proj.s12 h3{font-size:clamp(28px,4vw,52px)}
+.tag{display:inline-block;background:var(--c);color:var(--ink);padding:3px 10px;font-size:14px;font-weight:500;margin-right:10px}
+.proj .tag{color:#fff}.proj[style*="--c:#ecd94a"] .tag,.proj[style*="--c:#ecd94a"] .tag{color:var(--ink)}
+.when{font-size:14px}
+.proj p{margin:0 0 12px;max-width:50ch}
+.more{font-weight:500;background:linear-gradient(var(--c),var(--c)) 0 100%/100% 4px no-repeat;padding-bottom:2px;transition:background-size .15s}
+.proj:hover .more{background-size:100% 100%;color:#fff}
+@media(max-width:860px){.proj,.proj.s7,.proj.s5{grid-column:span 12;margin-top:0}.proj.s12 .ptext{margin:-40px 0 0 auto}}
+/* dialogs */
+dialog{border:0;padding:0;background:var(--cream);color:var(--ink);max-width:min(1200px,calc(100vw - 96px));width:100%;max-height:100vh;height:100%;margin:0 auto}
+dialog::backdrop{background:rgba(27,27,31,.5)}
+dialog[open]{animation:slide .22s ease-out}
+@keyframes slide{from{transform:translateY(16px);opacity:0}to{transform:none;opacity:1}}
+.dbody{padding:0 clamp(20px,4vw,48px) 64px}
+.dband{height:14px;background:var(--c,var(--cobalt));margin:0 calc(-1*clamp(20px,4vw,48px)) 28px}
+.close{position:sticky;top:12px;float:right;background:var(--ink);color:var(--cream);border:0;padding:10px 16px;font:500 15px inherit;font-family:inherit;cursor:pointer;z-index:2;margin-left:12px}
+.close:hover{background:var(--orange);color:var(--ink)}
+.dbody h2{font-size:clamp(34px,5.5vw,62px);margin:14px 0;clear:both}
+.dbody h3{font-size:24px;margin:40px 0 10px}
+.dbody h3::before{content:"";display:inline-block;width:.8em;height:.8em;background:var(--c,var(--cobalt));margin-right:.4em}
+.dbody p,.dbody li{max-width:66ch}
+.specs{display:grid;grid-template-columns:max-content 1fr;gap:6px 24px;margin:0;border-top:3px solid var(--ink);padding-top:12px}
+.specs dt{font-weight:500}.specs dd{margin:0}
+.chips{display:flex;gap:8px;flex-wrap:wrap;padding:0;list-style:none}
+.chips li{background:var(--ink);color:var(--cream);padding:2px 12px;font-size:15px}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;margin-top:12px}
+.gal button{padding:0;border:0;cursor:zoom-in;background:none;display:block}
+.gal button:hover img{transform:scale(1.05)}
+#lb{background:var(--ink);max-width:100vw;margin:0}
+#lb .dbody{height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;color:var(--cream);padding-top:60px}
+#lb img{max-height:78vh;object-fit:contain}
+.blk{margin:52px 0}.blk h3{margin:0 0 14px}.blk p{margin:0 0 1em}
+.fig{margin:0}.fig .imgbox img{height:auto;object-fit:contain}
+.fig figcaption{font-size:15px;margin-top:8px;border-left:4px solid var(--c,var(--cobalt));padding-left:10px;max-width:60ch}
+.zoom{padding:0;border:0;background:none;cursor:zoom-in;display:block;width:100%}.zoom:hover img{transform:scale(1.03)}
+.vid video,.vid iframe{width:100%;display:block;aspect-ratio:16/9;border:0;background:#000}
+.gal{align-items:start}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}.split.r .fig{order:-1}
+.pager{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:64px;border-top:3px solid var(--ink);padding-top:24px}
+.pager .btn{text-align:left}
+@media(max-width:760px){.split{grid-template-columns:1fr}}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap}
+.flogo{width:140px;height:140px;color:var(--cream)}.nm{margin:0;font:800 30px "DM Sans",sans-serif}
+/* about */
+#about{background:var(--orange);padding:96px 0}
+.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:start}
+.portrait{max-width:340px;background:var(--cobalt);padding:14px;transform:rotate(-2deg);box-shadow:10px 10px 0 var(--ink)}
+.about h2,#about h2{font-size:clamp(40px,6vw,76px);margin-bottom:24px}
+#about p{max-width:56ch;font-size:18px}
+#about .chips li{background:var(--cream);color:var(--ink)}
+@media(max-width:860px){.about-grid{grid-template-columns:1fr}}
+/* resume */
+#resume-view{padding:72px 0 96px;background:#c6d2f3}
+.rbox{border:3px solid var(--ink);background:#fff;min-height:420px;display:grid;box-shadow:10px 10px 0 var(--teal)}
+.rbox iframe{width:100%;height:80vh;border:0}
+.empty{padding:40px;align-self:center}
+code{background:var(--lemon);padding:1px 6px;font-size:.9em}
+/* footer */
+footer{background:var(--ink);color:var(--cream);padding:34px 0;border-top:3px solid var(--lemon)}
+#resume-view~footer{margin-top:0;clip-path:none}
+footer h2{font-size:clamp(38px,7vw,88px);max-width:12ch}
+footer h2 mark{background:var(--teal);color:var(--cream)}
+.contact{display:flex;flex-direction:column;gap:12px;align-items:flex-start;font-size:20px}
+.contact a{display:inline-flex;align-items:center;gap:10px;text-decoration:none;box-shadow:inset 0 -3px 0 var(--lemon);transition:background .15s,color .15s}
+.contact a:hover{background:var(--lemon);color:var(--ink)}
+.fine{font-size:14px;border-top:1px solid #4a4a50;padding-top:16px}
+[hidden]{display:none!important}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+@media(max-width:760px){.hero{padding:36px 0 44px}#projects,#about{padding:64px 0}.pgrid{gap:48px}.sec-head{margin-bottom:36px}footer{padding:36px 0}#resume-view{padding:48px 0 64px}}
+.pgrid{align-items:stretch}
+.proj{display:flex;flex-direction:column}
+.proj .pimg{flex:1;display:flex;min-height:340px}
+.proj .pimg .imgbox{flex:1}
+.proj .imgbox{position:relative}
+.proj .imgbox img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.proj.s12 .pimg{min-height:500px}
+.proj .ptext{min-height:170px}
+.proj.s12 .ptext{width:auto;margin:0;padding:20px 0 0;box-shadow:none;background:var(--cream);min-height:0}
+@media(max-width:860px){.proj .pimg,.proj.s12 .pimg{min-height:240px}.proj .ptext{min-height:0}}
+.dwrap{max-width:1100px;margin:0 auto}
+@media(max-width:760px){#pd{max-width:calc(100vw - 24px)}}
+#about{min-height:0;padding:100px 0;display:flex;align-items:center}
+#about .wrap{width:100%}
+@media(max-width:760px){#about{padding:88px 0;min-height:0}}
+@media(min-width:861px){.about-grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:center}}
+.portrait{max-width:none;width:100%}.portrait .imgbox{aspect-ratio:1/1}
+#about p{max-width:none;font-size:21px}#about h2{font-size:clamp(30px,4.8vw,56px)}
+.w-full{width:100%}.w-large{width:75%}.w-medium{width:50%}.w-small{width:33%}
+.al-center{margin-left:auto;margin-right:auto}.al-right{margin-left:auto}
+.gal{grid-template-columns:repeat(var(--cols,3),1fr)}
+.wrapblk::after{content:"";display:block;clear:both}
+.wrapblk .fl-l{float:left;margin:4px 28px 16px 0}.wrapblk .fl-r{float:right;margin:4px 0 16px 28px}
+@media(max-width:760px){.gal{grid-template-columns:repeat(2,1fr)}.split{grid-template-columns:1fr!important}.fig[class*="w-"]{width:100%!important;float:none!important;margin:0 0 16px!important}}
+@media(min-width:861px){.about-grid{align-items:stretch}.about-grid>div:first-child{display:flex}.portrait{flex:1;display:flex;transform:none;box-shadow:8px 8px 0 var(--ink)}.portrait .imgbox{flex:1;aspect-ratio:auto;min-height:320px;position:relative}.portrait .imgbox img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.about-grid>div:last-child{display:flex;flex-direction:column;justify-content:center}}
+@media(min-width:861px){#about p{font-size:22px;line-height:1.65}}
+.hero .btns{margin-top:36px}
+.hero h1{font-size:clamp(34px,5vw,58px)}
+.hero{position:relative}
+.tags{list-style:none;display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:28px 0 0}
+.tags li{padding:4px 14px;font-size:15px;font-weight:500;color:var(--ink);background:var(--cream)}
+.tags li:nth-child(1),.tags li:nth-child(5){background:var(--orange)}.tags li:nth-child(2){background:var(--lemon)}.tags li:nth-child(3){background:var(--teal);color:var(--cream)}
+.hero .btns{margin-top:28px}
+.frame .imgbox{position:relative}
+.frame .imgbox::before{content:"";position:absolute;inset:14px;z-index:2;pointer-events:none;background:linear-gradient(var(--lemon),var(--lemon)) 0 0/30px 3px,linear-gradient(var(--lemon),var(--lemon)) 0 0/3px 30px,linear-gradient(var(--lemon),var(--lemon)) 100% 0/30px 3px,linear-gradient(var(--lemon),var(--lemon)) 100% 0/3px 30px,linear-gradient(var(--lemon),var(--lemon)) 0 100%/30px 3px,linear-gradient(var(--lemon),var(--lemon)) 0 100%/3px 30px,linear-gradient(var(--lemon),var(--lemon)) 100% 100%/30px 3px,linear-gradient(var(--lemon),var(--lemon)) 100% 100%/3px 30px;background-repeat:no-repeat}
+.hero h1{animation:rise .6s both}.hero .tags{animation:rise .6s .1s both}.hero .btns{animation:rise .6s .2s both}
+.fr{display:flex;flex-direction:column;align-items:flex-end;gap:10px}.cp{margin:0 0 -9px;font-size:14px;white-space:nowrap;line-height:1}
+@media(max-width:760px){.fr{align-items:flex-start}}
+.foot{align-items:flex-end}.fr{order:0;align-items:flex-end}.contact{align-items:flex-start;text-align:left}
+@media(max-width:760px){.fr{align-items:flex-start}}
+@media(max-width:760px){.hero h1 span{white-space:normal!important}}
+.frame .imgbox::before{display:none}
+body{overflow-x:clip}
+dialog{height:100dvh;max-height:100dvh}
+@media(min-width:861px){.hero{min-height:0}.hero .hero-grid{width:100%}}
+@media(min-width:1500px){.wrap{max-width:1360px}.hero h1{font-size:66px}.sec-head h2,#about h2{font-size:60px}.proj.s12 .pimg{min-height:560px}}
+@media(max-width:760px){nav a{padding:13px 12px}.btns .btn{flex:1 1 100%;text-align:center}.frame{padding:0 0 20px 20px}.frame::before{inset:24px 24px 0 0}.pimg{padding:12px}.proj .ptext{padding-top:14px}.dbody h2{font-size:30px}.close{top:8px}}
+.proj.s12{flex-direction:row;align-items:stretch}
+.proj.s12 .pimg{flex:2;min-height:440px}
+.proj.s12 .ptext{flex:1;display:flex;flex-direction:column;justify-content:flex-end;width:auto;margin:0;padding:32px;background:var(--c);box-shadow:none;min-height:0}
+.proj.s12 .ptext h3,.proj.s12 .ptext p,.proj.s12 .when{color:var(--ink)}
+.proj.s12 .tag{background:var(--ink);color:var(--cream)}
+.proj.s12 .more{background:linear-gradient(var(--ink),var(--ink)) 0 100%/100% 4px no-repeat;align-self:flex-start}
+.proj.s12:hover .more{background-size:100% 100%;color:var(--cream)}
+@media(max-width:860px){.proj.s12{flex-direction:column}.proj.s12 .pimg{min-height:240px}.proj.s12 .ptext{padding:20px}}
+.dhead{display:grid;grid-template-columns:1.25fr .75fr;gap:36px;align-items:center;margin:8px 0 24px}
+.dhead h2{margin:14px 0}
+.dhead .pimg{padding:12px}.dhead .imgbox{position:relative;aspect-ratio:4/3}.dhead .imgbox img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media(max-width:760px){.dhead{grid-template-columns:1fr;gap:20px}}
+.steps{margin:0;padding:0;list-style:none;counter-reset:s;max-width:66ch}
+.steps li{counter-increment:s;position:relative;padding:4px 0 16px 52px;min-height:36px}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:36px;height:36px;background:var(--ink);color:var(--cream);font:700 17px "DM Sans",sans-serif;display:grid;place-items:center}
+.rbox{max-width:900px}.rbox iframe{height:auto;aspect-ratio:8.5/11}
+.proj.s12{flex-direction:column}
+.proj.s12 .pimg{flex:1;min-height:440px}
+.proj.s12 .ptext{flex:none;display:block;padding:20px 0 0;background:var(--cream);min-height:170px}
+.proj.s12 .ptext h3,.proj.s12 .ptext p,.proj.s12 .when{color:inherit}
+.proj.s12 .tag{background:var(--c);color:#fff}
+.proj.s12 .more{background:linear-gradient(var(--c),var(--c)) 0 100%/100% 4px no-repeat;align-self:auto}
+.proj.s12:hover .more{background-size:100% 100%;color:#fff}
+@media(max-width:860px){.proj.s12 .pimg{min-height:240px}.proj.s12 .ptext{min-height:0}}
+.rbox{max-width:none}.rbox iframe{height:auto;aspect-ratio:1/1.4}
+.proj .pimg{min-height:460px}.proj.s12 .pimg{min-height:540px}
+@media(max-width:860px){.proj .pimg,.proj.s12 .pimg{min-height:300px}}
+body{font-size:16px}
+.wrap{max-width:1320px}
+.hero{padding:36px 0 32px}
+#projects{padding:40px 0 48px}
+#about{padding:72px 0}
+.sec-head{margin-bottom:28px}
+.pgrid{gap:40px 28px}
+.proj.s4{grid-column:span 4}.proj.s6{grid-column:span 6}
+.proj .pimg{min-height:300px}.proj.s4 .pimg{min-height:320px}.proj.s6 .pimg{min-height:340px}
+.proj .ptext{min-height:150px}
+.proj h3{font-size:clamp(22px,2.4vw,30px)}
+#about p{font-size:19px}
+@media(min-width:861px){#about p{font-size:19px;line-height:1.6}}
+.blk{margin:32px 0}
+@media(max-width:860px){.proj.s4,.proj.s6{grid-column:span 12}}
+@media(max-width:760px){.hero{padding:32px 0 36px}#projects{padding:36px 0 40px}#about{padding:56px 0}.proj .pimg,.proj.s4 .pimg,.proj.s6 .pimg{min-height:240px}}
+.proj.s12 .pimg{min-height:560px}.proj.s7 .pimg,.proj.s5 .pimg{min-height:450px}
+@media(max-width:760px){.proj.s12 .pimg,.proj.s7 .pimg,.proj.s5 .pimg{min-height:240px}}
+#projects .wrap{max-width:1200px}
+.proj.s12 .pimg{min-height:500px}.proj.s7 .pimg,.proj.s5 .pimg{min-height:420px}
+@media(max-width:760px){.proj.s12 .pimg,.proj.s7 .pimg,.proj.s5 .pimg{min-height:240px}}
+.dwrap{max-width:none}
+.dsec{column-count:2;column-gap:56px;margin-top:8px}
+.dsec .blk{break-inside:avoid;margin:0 0 22px}
+.dsec .blk.span{column-span:all;margin:6px 0 26px}
+.dsec .blk h3{font-size:20px;margin:0 0 8px}
+.dsec p,.dsec li{font-size:16px;max-width:none}
+.dsec .steps{max-width:none}.dsec .steps li{padding-bottom:10px}
+@media(max-width:860px){.dsec{column-count:1}}
+@media(min-width:861px){.portrait .imgbox{min-height:560px}}
+@media(max-width:860px){.portrait .imgbox{aspect-ratio:4/5}.portrait{max-width:440px}}
+.portrait .imgbox img{object-position:50% 15%}
+@media(min-width:861px){#about p{font-size:24px;line-height:1.55}}
+@media(max-width:860px){#about p{font-size:20px}}
+.rbox iframe{height:auto;aspect-ratio:1/1.3}
+.dhead.cs{grid-template-columns:1fr 33%}
+.dhead.cs .pimg{padding:0;background:none;box-shadow:8px 8px 0 var(--c)}
+@media(max-width:760px){.dhead.cs{grid-template-columns:1fr}}
+.dsec .blk:not(.span){break-inside:auto}.dsec .blk p{break-inside:avoid}.dsec .blk h3{break-after:avoid}
+.dsec .blk:has(.chips),.dsec .blk:has(.specs){break-inside:avoid}
+.fig.capr{width:100%;display:flex;align-items:center;gap:28px}
+.fig.capr .zoom{flex:0 0 42%;width:42%}
+.fig.capr figcaption{margin:0;flex:1;max-width:none;font-size:16px}
+@media(max-width:760px){.fig.capr{flex-direction:column;align-items:stretch;gap:10px}.fig.capr .zoom{flex:none;width:100%}}
+.fig.capr figcaption{white-space:pre-line}
+.dbody{padding-bottom:36px}
+.dsec .blk:last-child{margin-bottom:0}
+.pager{margin-top:28px;padding-top:20px}
+.pager .btn{flex:1 1 220px;text-align:center}
+.tcols{column-count:2;column-gap:56px}
+.tcols p{margin:0 0 .9em;orphans:2;widows:2}
+@media(max-width:860px){.tcols{column-count:1}}
+.dsec .blk .tcols p{break-inside:auto}
+.tcols{column-fill:balance}
+.pairgrid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+@media(max-width:760px){.pairgrid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<script>
+/* =====================================================================
+   EDIT YOUR CONTENT HERE. The whole site is driven by this block.
+   TEXT: change the words inside the quote marks, save, refresh.
+   PICTURES: just drop image files into the folders named below, with exactly these names
+   (jpg, png or webp). No code edits needed. Missing files show a labelled placeholder.
+     images/hero.jpg   images/profile.jpg   images/project-1/cover.jpg ... images/project-5/cover.jpg
+   RESUME: put your PDF at resume/Matteo-Musso-Resume.pdf. The viewer and Download button then work.
+   Keep the quote marks and commas. Nothing outside this block needs to change. */
+
+const SITE = {
+  email: "matteomusso05@gmail.com", emailSubject: "Engineering Opportunity - Matteo Musso",
+  linkedin: "https://www.linkedin.com/in/matteo-musso-672a63315/",                // paste your LinkedIn profile URL to show the LinkedIn row in the footer
+  heroImage: "images/hero", portrait: "images/profile",  // drop hero.jpg and profile.jpg (or .png/.webp) into the images folder
+  resumePdf: "resume/Matteo-Musso-Resume.pdf",  // drop your PDF in the resume folder with this exact name
+  about: [
+    "I’m a fourth-year Mechanical Engineering student at the University of Windsor who turns ideas into practical solutions through research, design, testing, and manufacturing.",
+    "My interest in engineering began with LEGO as a kid, where I discovered how much I enjoyed understanding how things work and bringing my own ideas to life. Since then, I’ve continued to pursue that curiosity by taking on new challenges and developing my skills as an engineer."
+  ],
+  skills: [] // add only what you can back up, e.g. ["SolidWorks","3D printing"]
+};
+
+/* Each project has a cover and a list of "sections". Add, delete, or reorder sections to change the layout.
+   IMAGE FILES: images/project-1/cover.jpg, images/project-1/main.jpg, images/project-1/gallery-1.jpg ... (same for 2 to 5).
+   Write a path with no extension ("images/project-1/main") to auto-detect jpg/png/webp, or with one ("...main.jpg").
+   SECTION TYPES:
+   {type:"text",    heading:"Design process", paragraphs:["Paragraph one","Paragraph two"]}
+   {type:"image",   src:"images/project-1/main", caption:"...", width:"full|large|medium|small", align:"left|center|right"}
+   {type:"gallery", heading:"CAD views", columns:3, images:[{src:"images/project-1/gallery-1", caption:"..."}, ...]}
+   {type:"video",   src:"videos/project-1/demo.mp4" or a YouTube/Vimeo link, poster:"", caption:"...", width:"full|large|medium|small"}
+   {type:"split",   heading:"...", paragraphs:["..."], src:"...", caption:"...", side:"left|right", imgWidth:50}   text beside image (imgWidth = % of row)
+   {type:"wrap",    heading:"...", paragraphs:["..."], src:"...", caption:"...", side:"left|right", width:"small|medium|large"}   text wraps around image
+   {type:"specs",   heading:"Technical specifications", rows:[["Payload","value"]]}
+   {type:"list",    heading:"Tools and components", items:["SolidWorks","PLA"]}
+   {type:"steps",   heading:"How it was done", items:["Step one","Step two"]}   numbered steps
+   Empty text, specs, lists and galleries are hidden. Optional per project: links:[{label:"GitHub", url:"https://..."}] */
+/* Each project follows the same story: what it is, why it was done, how it was done (steps), setbacks,
+   what I learned, and the final product, with its own layout and a video section with a caption.
+   Edit the text, titles, image widths and gallery columns right here, move whole lines to reorder,
+   or copy a line to add a section. Set a video's src to your file or a YouTube/Vimeo link. */
+const S=(n,k)=>`images/project-${n}/${k}`, G=(n,c)=>Array.from({length:c},(_,k)=>({src:S(n,"gallery-"+(k+1)),caption:""}));
+const T=(h,p)=>({type:"text",heading:h,paragraphs:p});
+const TS=(h,p)=>({...T(h,p),stack:true});
+const V=(h,cap)=>({type:"video",heading:h,src:"",caption:cap,width:"large",align:"center"});
+const ST=(items)=>({type:"steps",heading:"How it was done",items});
+const SPEC={type:"specs",heading:"Technical specifications",rows:[]}, TOOLS={type:"list",heading:"Tools and components",items:[]};
+const SECTIONS=[
+ /* 1 */ ()=>[
+  T("What it is",["This is a robotic arm I designed and built to pick up and move small objects. It is made up of links and joints driven by actuators, and it shows how mechanical design turns into real movement.", "The arm is a good example of a system where the design, the motion and the build all depend on each other, so a small change in one part shows up everywhere else."]),
+  T("Why I did it",["I wanted a hands-on project that combined mechanical design, CAD and testing in one build.", "A robotic arm is a good test of those skills, because every joint, link and mount affects how the whole system moves.", "I also wanted to see my design decisions in motion, not just on a screen, and to learn from what the real parts did differently from the model."]),
+  {type:"image",src:S(1,"cad-model"),caption:"CAD model of the complete robotic arm.",width:"medium",align:"center"},
+  TS("Design process",["I worked in cycles: sketch, model, build, test, then back to the model. Working in CAD first let me catch problems like parts colliding or joints with too little travel before they cost time and material.", "Each joint was designed on its own first, then checked as part of the whole arm, because a joint that works alone can still cause trouble once the weight of the rest of the arm is added.", "I kept parts simple and standardised where I could, which made them quicker to make and easier to replace when something needed to change.", "Testing was a regular part of the build, not a final step. After each change I moved the arm through its range and looked for new problems, which made it easier to tell which change had fixed or caused something."]),
+  {type:"gallery",columns:2,images:[{src:S(1,"concept-sketches"),caption:"Early concept sketches of the arm's links and joints."},{src:S(1,"design-process"),caption:"CAD views of the arm's joints and links."}]},
+  TS("Setbacks and fixes",["Early versions had joints that felt loose and a structure that flexed more than I wanted.", "The looseness came from fits that were too generous at the joints, and the flex came from links that were not stiff enough for the load they carried.", "I reworked the joint design for a tighter fit and stiffened the links, then tested again until the motion was smooth."]),
+  {type:"gallery",columns:3,images:[{src:S(1,"joint-before"),caption:"A joint before the fit was tightened."},{src:S(1,"joint-after"),caption:"The reworked joint design."},{src:S(1,"stiffened-links"),caption:"The stiffened links."}]},
+  TS("Final assembly and takeaways",["The result is a working robotic arm built from my own design, taken from concept sketches through CAD to a tested assembly.", "It brings together the mechanical design, building and testing skills I wanted to develop, and gave me a base to keep improving the design.", "Small details like fit, alignment and stiffness change how a mechanism behaves, and testing early saves time later.", "I also learned to design with the build in mind, choosing shapes and fits that I could actually make and adjust."]),
+  {type:"image",src:S(1,"demo-event"),caption:"The finished 4 DOF robotic arm on display at the exhibition.",width:"medium",align:"center"},
+  {type:"list",heading:"Tools and components",items:["CAD modelling", "Hand and power tools", "Fasteners and hardware", "Actuators and wiring"]}],
+
+ /* 2 */ ()=>[
+  T("What it is",["I developed a desktop retro arcade cabinet powered by a Raspberry Pi 4, drawing design inspiration from classic 1980s machines with vibrant aesthetics and authentic arcade controls. Built within a $150 budget, the system emulates over 10 legacy consoles and supports a library of more than 2,500 games, balancing cost-efficient hardware integration with dependable performance."]),
+  T("Why I did it",["Ever since I was a kid, I loved retro arcade games, but I never had a way to play that could capture that authentic feeling quite right. Building this project allowed me to test my CAD and manufacturing knowledge to design a user-friendly product, while also giving me hands-on experience managing internal wiring, cable routing, and electronics."]),
+  {type:"image",src:S(2,"cad-model"),caption:"CAD model of the complete retro arcade cabinet.",width:"medium",align:"center"},
+  TS("Design process",["The process began with research into classic retro arcade machine ergonomics and aesthetics. I planned out the rough dimensions by compiling a full hardware Bill of Materials (BOM). From there, I drew hand sketches to establish the exterior and control panel layout.", "Next, I loaded the operating system, emulator software, and game library onto the Raspberry Pi to test and verify that all controls, speakers and sound control, and the display functioned correctly before proceeding to build.", "With the hardware confirmed, I moved into CAD to model the complete assembly section by section. Once all parts were 3D printed, I assembled the final cabinet using hand and power tools."]),
+  {type:"gallery",columns:2,images:[{src:S(2,"concept-sketches"),caption:"Early concept sketches and component layout for the cabinet."},{src:S(2,"design-process"),caption:"Bill of materials of all purchased components."}]},
+  TS("Setbacks and fixes",["The cabinet's small footprint and low weight made it slide around too easily during gameplay. The printed parts are PLA, which has a low coefficient of static friction (around 0.2 to 0.4), so I added rubber feet to raise it to around 0.7 to 0.95. This anchored the machine firmly in place during play.", "The machine also had to be split into pieces so it could be 3D printed and then put back together. I connected the pieces with dovetail joints, designed with a friction-fit tolerance of 0.1 mm so the parts press together and hold each other in place. Getting that tolerance right mattered, because a joint that is too loose rattles and one that is too tight is hard to assemble. Dovetails also keep the pieces aligned, so the finished cabinet lines up the way it did in the CAD model.", "I also noticed heat issues while running larger games, so I added ventilation holes in the sides of the machine along with internally mounted fans to circulate the air. The fans move the hot air through the cabinet and carry heat away from the electronics as they exit through the ventilation holes."]),
+  {type:"gallery",columns:3,images:[{src:S(2,"rubber-feet"),caption:"Rubber feet added to the bottom of the cabinet to increase friction."},{src:S(2,"dovetail-1"),caption:"Dovetail connection joining two sections of the cabinet."},{src:S(2,"ventilation"),caption:"Ventilation holes cut into the side of the cabinet."}]},
+  TS("Final assembly and takeaways",["The result is a complete retro arcade machine built from my own plans, from the first sketch to the finished cabinet. It captures the look of classic arcade cabinets in a compact, desktop-sized design. I learned how to plan a full assembly in CAD, work within a set budget, account for how tolerances affect fit, and why building in stages makes problems easier to identify and fix. The project also showed me how important user experience is, with factors like height and reach playing a key role in the design."]),
+  V("","A look at the arcade machine in action."),
+  {type:"list",heading:"Tools and components",items:["CAD modelling", "Cutting and shaping tools", "Fasteners and hardware", "Screen and controls"]}],
+
+ /* 3 */ ()=>[
+  T("What it is",["An inspection assembly of six axes, built to inspect all six sides of a product so an overhead camera can accurately capture images and validate quality. It is adaptable to various shapes and sizes just by changing out the clamp fingers."]),
+  T("Why I did it",["I was tasked with coming up with and designing this assembly during my time at O-Hive, for a client that wanted to efficiently and cheaply perform quality checks on over 1.5 million units to see which products could be successfully refurbished.", "I was also asked to make the product easily interchangeable so it could be used by various other clients who had similar applications."]),
+  TS("Design process",["First, I began by asking the questions vital to the design: what is the required payload and clamping force, what method of clamping is being used, and how do I achieve a completed scan of the product?", "I started by sourcing the clamps and designing around them, as they were the most important part of the assembly.", "Before I even started CAD modelling, I planned out the design and the cycle of the scanning, so I had a more complete idea before making the parts."]),
+  {type:"gallery",columns:2,images:[{src:S(3,"concept-sketches"),caption:"Early concept sketches of how the six axes stack and connect."},{src:S(3,"design-process"),caption:"CAD views of the scanner's joints and links."}]},
+  TS("Setbacks and fixes",["The weight of the product and the assembly components was dictated by my pre-selected motors, the Xiaomi CyberGear, so I had to be careful to design around the torque limits and mechanical design of the motors.", "My first clamp was too heavy after I completed my torque calculations from the motors' continuous torque specs, so I went back to sourcing a lighter clamp that still fit my required specs.", "Once I made my model, I looked at the cycle and noticed there was a collision when passing over the product between clamps. I made changes to the simulation and mechanical design, while still adhering to the electrical component guidelines, and came up with a revised design that removed the collision."]),
+  {type:"pair",items:[{type:"image",src:S(3,"calculations"),caption:"Torque calculations for the motors and clamp."},{type:"video",src:"",caption:"Simulation of the scanning cycle used to find and fix the collision."}]},
+  TS("Final assembly and takeaways",["The result is a working six-axis inspection fixture, designed, sourced, modelled and simulated by me to become a solution for a client, and one that can also be tailored to fit the needs of other potential customers.", "It helped me work through an entire project pipeline: sourcing, doing calculations to verify, modelling, and proving my design is capable. I learned about the limits of electrical components and how mechanical specs must be designed to work with them, and how to break down and plan a cycle to meet customer needs."]),
+  {type:"image",src:S(3,"demo-event"),caption:"The assembly at a demo event.",width:"medium",align:"center"},
+  {type:"list",heading:"Tools and components",items:["CAD modelling", "Simulation", "Cycle time planning", "Inertia calculations"]}],
+
+ /* 4 */ ()=>[
+  T("What it is",["An old bike converted to electric rear-wheel drive power, with adaptable motor control and 5 speeds of pedal assist. It has up to 30 km of battery life and a top speed of 35 km/h."]),
+  T("Why I did it",["I wanted a project that mixed existing mechanical hardware with electrical hardware.", "Converting an existing bike also meant working around what was already there, which is how a lot of real engineering works.", "It was also a project I could use, which made the design decisions feel real."]),
+  {type:"image",src:S(4,"layout"),caption:"Planned layout of the motor, battery and controller on the bike.",width:"medium",align:"center"},
+  TS("Design process",["First, I set myself a budget to stick to. I chose $500 CAD, which at the time was only a quarter of what an electric bike with the same specs would cost on the shelf.", "I then sourced a conversion kit for around $400 CAD, and was thankfully gifted a 48V lithium electric battery from my uncle. Using some of the extra money I had, I purchased the various hardware components I needed for the project.", "Once I had everything, I began planning where I wanted the battery and control system on the bike, so they would integrate properly without affecting the ergonomics of riding. I then tested the wiring to make sure everything worked before integrating it onto the bike.", "Next, I disassembled the old brake so I could rewire the new electric brake. I routed and secured the wiring along the frame so it stayed clear of moving parts, and I worked out the mechanical integration for mounting a camera to the handlebars, including how to attach it securely and run its wiring."]),
+  {type:"gallery",columns:2,images:[{src:S(4,"concept-sketches"),caption:"Early sketches of the component layout on the frame."},{src:S(4,"design-process"),caption:"Mounts designed for the motor, battery and controller."}]},
+  TS("Setbacks and fixes",["I wanted to be able to ride without having to worry about rain or getting the bike wet, so I put the controller in a waterproof bag to protect it from the elements.", "Another issue came up when installing the pedal assist, as I didn't have the tools to do it. With the last of my budget, I commissioned a local bike mechanic to help me detach the existing pedal assembly.", "I also needed to readjust the bike's existing handlebars to fit my height, which I did using spacers."]),
+  {type:"gallery",columns:3,images:[{src:S(4,"waterproof-controller"),caption:"Controller in a waterproof bag."},{src:S(4,"pedal-assist"),caption:"Pedal assist installed after removing the existing pedal assembly."},{src:S(4,"handlebar-spacers"),caption:"Handlebar spacers used to adjust the riding position."}]},
+  TS("Final assembly and takeaways",["The result is an electric converted bike with motor control and pedal assist tailored to my body.", "It taught me that even with extensive planning, problems will arise in engineering and you need to be able to come up with a solution for them.", "It was my first instance of integrating electrical hardware into an existing mechanical design, and it gave me hands-on assembly experience.", "I was happy and proud of a project I made myself, for something I could use."]),
+  V("","The converted bike on a test ride."),
+  {type:"list",heading:"Tools and components",items:["Electric motor kit", "Battery and controller", "Mounting hardware", "Hand tools and wiring"]}],
+
+ /* 5 */ ()=>[
+  T("What it is",["An assembly line fixture that uses an incorporated conveyor belt to idle product during the assembly line and move the product when required. It allows for ease of closure hang assembly."]),
+  T("Why I did it",["I was tasked with making this during my time at Valiant, for one of the world's largest OEMs.", "It was designed for repeatability and long-term use, to be able to handle the assembly of 400-plus vehicles daily."]),
+  TS("Design process",["To begin, I started with a previous design for an old closure hang assembly line of a different vehicle, provided to me by my supervisor. I was given guidelines for what the new design required and what to do once the design was completed.", "I had to rotate the entire frame by 15 degrees so it would now become a square frame. I could not move the floor mount and conveyor belt positions. I had to make sure the new product still made contact with the stand point, and reposition the sensors to accurately measure and see the product so the controls worked correctly.", "Once I finished, I had to update the stock sheets with the new fasteners and the updated materials and component sizes. I also had to redesign with metal tubing, so I had to adhere to the metal tubing standards: tubing should only be cut at 0 to 45 degree cuts."]),
+  {type:"image",src:S(5,"previous-design"),caption:"CAD model of original fixture",width:"medium",align:"center"},
+  TS("Setbacks and fixes",["The first design I made had extra material and was more complex, which would have led to higher cost and harder assembly for the line workers.", "My supervisor advised me that the simpler the better, because it lowers cost, increases repeatability and means fewer issues arise.", "In my second design, I cut material, removed unneeded supports and relocated the door stand guide to use the pre-existing pipe instead of adding extra material."]),
+  {type:"image",src:S(5,"first-design"),caption:"First design iteration",width:"medium",align:"center"},
+  TS("Final assembly and takeaways",["The result was a redesign of an existing fixture to meet the new design requirements and simplify the assembly.", "It taught me how to design for manufacturing and long-term use, and how to properly update stock and the BOM for fixtures."]),
+  {type:"image",src:S(5,"final-fixture"),caption:"The completed assembly line fixture.",width:"medium",align:"center"},
+  {type:"list",heading:"Tools and components",items:["CAD modelling", "Design for manufacturing", "Fixture redesign", "Metal tubing"]}],
+];
+const PROJECTS = [
+ {title:"4 DOF Robotic Arm",coverSmall:true,category:"Robotics",date:"Nov 2026",color:"#e8571f",summary:"Designing a 4 DOF robotic arm from first concept to a physical build.",cover:"images/project-1/cover",coverCaption:"",links:[],sections:SECTIONS[0]()},
+ {title:"Retro Arcade Machine",coverSmall:true,category:"Design and build",date:"Sep 2026",color:"#1636c9",summary:"A retro-style arcade cabinet, designed and built from scratch.",cover:"images/project-2/cover",coverCaption:"",links:[],sections:SECTIONS[1]()},
+ {title:"6 Axis Scanner",coverSmall:true,category:"Mechatronics",date:"Apr 2026",color:"#0e8a80",summary:"Six-axis inspection assembly",cover:"images/project-3/cover",coverCaption:"",links:[],sections:SECTIONS[2]()},
+ {title:"Assembly Line Fixture",coverSmall:true,category:"Manufacturing",date:"May 2025",color:"#e8571f",summary:"Idle station fixture for an assembly line",cover:"images/project-5/cover",coverCaption:"",links:[],sections:SECTIONS[4]()},
+ {title:"Electric Bike Conversion",coverSmall:true,category:"Personal project",date:"Jun 2020",color:"#ecd94a",summary:"Converting a regular bicycle to electric power.",cover:"images/project-4/cover",coverCaption:"",links:[],sections:SECTIONS[3]()}
+];
+/* ===================== END OF EDITABLE CONTENT ===================== */
+</script>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="mm" viewBox="0 0 100 100"><path fill="currentColor" fill-rule="evenodd" d="M44.0 9.4L45.7 2.2L54.3 2.2L56.0 9.4L65.1 11.9L70.2 6.5L77.6 10.7L75.5 17.9L82.1 24.5L89.3 22.4L93.5 29.8L88.1 34.9L90.6 44.0L97.8 45.7L97.8 54.3L90.6 56.0L88.1 65.1L93.5 70.2L89.3 77.6L82.1 75.5L75.5 82.1L77.6 89.3L70.2 93.5L65.1 88.1L56.0 90.6L54.3 97.8L45.7 97.8L44.0 90.6L34.9 88.1L29.8 93.5L22.4 89.3L24.5 82.1L17.9 75.5L10.7 77.6L6.5 70.2L11.9 65.1L9.4 56.0L2.2 54.3L2.2 45.7L9.4 44.0L11.9 34.9L6.5 29.8L10.7 22.4L17.9 24.5L24.5 17.9L22.4 10.7L29.8 6.5L34.9 11.9ZM18 50a32 32 0 1 0 64 0a32 32 0 1 0-64 0Z"/><path fill="none" stroke="#1636c9" stroke-width="5" stroke-linejoin="bevel" d="M28 64V36l11 15L50 36v28M50 64V36l11 15L72 36v28"/></symbol></svg>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap">
+<a class="brand" href="#home" aria-label="Matteo Musso, home"><svg width="42" height="42" aria-hidden="true"><use href="#mm"/></svg>Matteo Musso</a>
+<button class="menu" aria-expanded="false" aria-controls="nav">Menu</button>
+<nav id="nav" aria-label="Main"><ul>
+<li><a href="#home" data-nav="home">Home</a></li>
+<li><a href="#projects" data-nav="projects">Projects</a></li>
+<li><a href="#about" data-nav="about">About</a></li>
+<li><a href="#contact" data-nav="contact">Contact</a></li>
+<li><a class="cta" href="#resume" data-nav="resume">Resume</a></li></ul></nav></div></header>
+
+<main id="main">
+<div id="page-main">
+<section class="hero" id="home" data-sec="home"><div class="wrap hero-grid">
+<div>
+<h1>Matteo Musso<br><span style="white-space:nowrap">Mechanical Engineering</span></h1>
+<ul class="tags" aria-label="Interests"><li>Manufacturing</li><li>Mechatronics</li><li>Automation</li><li>CAD</li></ul>
+
+<div class="btns"><a class="btn o" href="#projects">Explore my projects</a><a class="btn" href="#resume">View my resume</a></div>
+</div>
+<div><div class="frame">
+<div class="imgbox ar-a" id="heroimg" style="box-shadow:0 0 0 3px #1b1b1f"></div></div>
+</div>
+</div></section>
+
+<section id="projects" data-sec="projects"><div class="wrap">
+<div class="sec-head"><h2>Projects</h2></div>
+<div class="pgrid" id="pgrid"></div>
+</div></section>
+
+<section id="about" data-sec="about"><div class="wrap about-grid">
+<div><div class="portrait"><div class="imgbox ar-d" id="portrait"></div></div></div>
+<div><h2>About me</h2><div id="aboutText"></div>
+<div id="skills" hidden><h3 style="font-size:24px;margin:24px 0 10px">Skills and tools</h3><ul class="chips" id="skillList"></ul></div></div>
+</div></section>
+</div>
+
+<section id="resume-view" data-sec="resume" hidden><div class="wrap">
+<div class="sec-head"><h2>My <span style="color:var(--teal)">resume</span></h2></div>
+<div class="btns" style="margin-bottom:36px"><a class="btn o" id="dl" download>Download resume</a><a class="btn" id="newtab" target="_blank" rel="noopener">Open in new tab</a><a class="btn" href="#home">Back to home</a></div>
+<div class="rbox" id="rbox"></div>
+</div></section>
+</main>
+
+<footer id="contact"><div class="wrap foot">
+<div class="contact"><p class="nm">Matteo Musso</p>
+<a id="mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><path d="m3 7 9 6 9-6"/></svg><span>matteomusso05@gmail.com</span></a>
+<a id="li" hidden target="_blank" rel="noopener"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><path d="M8 10.5V16M8 7.5v.01M12 16v-5.5M12 13c0-1.7 1-2.5 2.5-2.5S17 11.3 17 13v3"/></svg><span>LinkedIn</span></a>
+<a id="tel" href="tel:+15197913763"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg><span>519-791-3763</span></a></div>
+<div class="fr"><svg class="flogo" role="img" aria-label="MM monogram"><use href="#mm"/></svg><p class="cp">&copy; 2026 Matteo Musso</p></div>
+</div></footer>
+
+<dialog id="pd" aria-label="Project details"><div class="dbody" id="pbody"></div></dialog>
+<dialog id="lb" aria-label="Image viewer"><div class="dbody"><button class="close" data-close style="position:absolute;top:16px;right:16px">Close</button><img id="lbimg" alt=""><p id="lbcap" style="margin:0"></p></div></dialog>
+
+<script>
+
+
+const $=s=>document.querySelector(s), esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const ph=(label,col="#1636c9")=>"data:image/svg+xml;utf8,"+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect width="400" height="300" fill="${col}"/><g fill="none" stroke="#f4ecdc" stroke-width="3"><circle cx="200" cy="140" r="62"/><circle cx="200" cy="140" r="18"/></g><path d="M110 140h180M200 50v180" stroke="#1b1b1f" stroke-width="2" stroke-dasharray="10 5"/><text x="200" y="266" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#f4ecdc">${esc(label)}</text></svg>`);
+const X=["jpg","png","webp","jpeg"], hasExt=t=>/\.\w{2,5}$/.test(t);
+const img=(src,label,alt,col,eager)=>{
+  const auto=src&&!hasExt(src), p=ph(auto?`Add ${src}.jpg`:label,col);
+  return `<img src="${esc(auto?src+".jpg":(src||p))}" ${auto?`data-base="${esc(src)}" data-n="0" `:""}${src?`data-ph="${esc(p)}" `:""}alt="${esc(alt||label)}" ${eager?"":'loading="lazy"'} decoding="async">`};
+function fb(el){const b=el.dataset.base;let n=+el.dataset.n||0;if(b&&n<X.length-1){el.dataset.n=++n;el.src=b+"."+X[n];return}if(el.dataset.ph&&el.src!==el.dataset.ph)el.src=el.dataset.ph}
+document.addEventListener("error",e=>{if(e.target.tagName==="IMG")fb(e.target)},true);
+
+$("#heroimg").innerHTML=img(SITE.heroImage,"Replace: hero image","CAD render or prototype photo placeholder","#1b1b1f",true);
+$("#portrait").innerHTML=img(SITE.portrait,"Replace: portrait","Portrait placeholder","#1b1b1f");
+$("#aboutText").innerHTML=SITE.about.map(p=>`<p>${esc(p)}</p>`).join("");
+if(SITE.skills.length){$("#skills").hidden=false;$("#skillList").innerHTML=SITE.skills.map(s=>`<li>${esc(s)}</li>`).join("")}
+$("#mail").href=`mailto:${SITE.email}?subject=${encodeURIComponent(SITE.emailSubject)}`;
+{const a=$("#li");a.href=SITE.linkedin||"https://www.linkedin.com/";a.hidden=false}
+
+const spans=["s12","s7","s5","s5","s7"], ars=["ar-a","ar-a","ar-d","ar-c","ar-b"];
+const lemon=c=>c==="#ecd94a";
+$("#pgrid").innerHTML=PROJECTS.map((p,i)=>{
+  const c=spans[i%5], col=p.color||"#1636c9", dark=lemon(col)?"color:#1b1b1f":"";
+  return `<button class="proj ${c}" style="--c:${col}" data-i="${i}" aria-label="View project: ${esc(p.title)}"><div class="pimg"><div class="imgbox">${img(p.cover,"Replace: project "+(i+1)+" cover",p.title+" cover image",col)}</div></div><div class="ptext"><span class="tag" style="${dark}">${esc(p.category||"")}</span><span class="when">${esc(p.date||"")}</span><h3>${esc(p.title)}</h3>${p.summary?`<p>${esc(p.summary)}</p>`:""}<span class="more">View project</span></div></button>`}).join("");
+
+const pd=$("#pd"), lb=$("#lb"); let lastBtn=null;
+const nl=a=>(a||[]).length, paras=a=>(a||[]).filter(Boolean);
+const fig=(inner,cap,cls)=>`<figure class="fig ${cls||""}">${inner}${cap?`<figcaption>${esc(cap)}</figcaption>`:""}</figure>`;
+const pic=(im,col)=>`<button class="zoom" data-src="${esc(im.src||"")}" data-cap="${esc(im.caption||"")}" aria-label="Enlarge image"><div class="imgbox">${img(im.src,"Replace: image",im.caption,col)}</div></button>`;
+function vid(v,col){
+  if(!v.src)return `<div class="imgbox">${img("","Add a video here","Video placeholder",col)}</div>`;
+  const y=v.src.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([\w-]{11})/), m=v.src.match(/vimeo\.com\/(\d+)/), t=esc(v.caption||"Project video");
+  if(y)return `<iframe src="https://www.youtube-nocookie.com/embed/${y[1]}" title="${t}" loading="lazy" allowfullscreen></iframe>`;
+  if(m)return `<iframe src="https://player.vimeo.com/video/${m[1]}" title="${t}" loading="lazy" allowfullscreen></iframe>`;
+  return `<video controls preload="metadata" playsinline ${v.poster?`poster="${esc(v.poster)}"`:""} src="${esc(v.src)}"></video>`}
+const WIDE=["image","gallery","video","split","wrap","list","pair"];
+const wcls=b=>`w-${b.width||"full"} al-${b.align||"left"}`;
+function blockHTML(b,col){
+  const h=b.heading?`<h3>${esc(b.heading)}</h3>`:"", ps=paras(b.paragraphs).map(t=>`<p>${esc(t)}</p>`).join("");
+  switch(b.type){
+    case"text":return ps?`<div class="blk">${h}${b.stack?`<div class="tcols">${ps}</div>`:ps}</div>`:"";
+    case"image":return `<div class="blk">${h}${fig(pic(b,col),b.caption,wcls(b)+(b.captionSide==="right"?" capr":""))}</div>`;
+    case"gallery":return nl(b.images)?`<div class="blk">${h}<div class="gal" style="--cols:${+b.columns||3}">${b.images.map(g=>fig(pic(g,col),g.caption)).join("")}</div></div>`:"";
+    case"video":return `<div class="blk">${h}${fig(`<div class="vid">${vid(b,col)}</div>`,b.caption,wcls(b))}</div>`;
+    case"split":{const iw=+b.imgWidth||50,l=b.side==="left";return `<div class="blk split ${l?"r":""}" style="grid-template-columns:${l?iw+"fr "+(100-iw)+"fr":(100-iw)+"fr "+iw+"fr"}"><div>${h}${ps}</div>${fig(pic(b,col),b.caption)}</div>`}
+    case"wrap":return `<div class="blk wrapblk">${fig(pic(b,col),b.caption,`fl-${b.side==="left"?"l":"r"} w-${b.width||"medium"}`)}${h}${ps}</div>`;
+    case"specs":return nl(b.rows)?`<div class="blk">${h}<dl class="specs">${b.rows.map(r=>`<dt>${esc(r[0])}</dt><dd>${esc(r[1])}</dd>`).join("")}</dl></div>`:"";
+    case"pair":return `<div class="blk">${h}<div class="pairgrid">${b.items.map(it=>it.type==="video"?fig(`<div class="vid">${vid(it,col)}</div>`,it.caption):fig(pic(it,col),it.caption)).join("")}</div></div>`;
+    case"steps":return nl(b.items)?`<div class="blk">${h}<ol class="steps">${b.items.map(t=>`<li>${esc(t)}</li>`).join("")}</ol></div>`:"";
+    case"list":return nl(b.items)?`<div class="blk">${h}<ul class="chips">${b.items.map(t=>`<li>${esc(t)}</li>`).join("")}</ul></div>`:"";
+  }return ""}
+function openProject(i){
+  const p=PROJECTS[i], col=p.color||"#1636c9", n=PROJECTS.length, pv=(i+n-1)%n, nx=(i+1)%n, dk=col==="#ecd94a"?"#1b1b1f":"#fff";
+  const links=nl(p.links)?`<div class="blk"><h3>Links</h3><p>${p.links.map(l=>`<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join(" &nbsp; ")}</p></div>`:"";
+  const pager=`<div class="pager" role="group" aria-label="Project navigation">${n>1?`<button class="btn" data-go="${pv}">Previous: ${esc(PROJECTS[pv].title)}</button>`:""}<button class="btn o" data-close>Back to projects</button>${n>1?`<button class="btn" data-go="${nx}">Next: ${esc(PROJECTS[nx].title)}</button>`:""}</div>`;
+  $("#pbody").style.setProperty("--c",col);
+  $("#pbody").innerHTML=`<div class="dband"></div><div class="dwrap"><button class="close" data-close>Close</button><div class="dhead${p.coverSmall?" cs":""}"><div><span class="tag" style="--c:${col};color:${dk}">${esc(p.category||"")}</span><span class="when">${esc(p.date||"")}</span><h2>${esc(p.title)}</h2>${p.summary?`<p style="font-size:19px;max-width:60ch">${esc(p.summary)}</p>`:""}</div><div class="pimg" style="--c:${col}">${pic({src:p.cover,caption:p.coverCaption||p.title},col)}</div></div>${p.coverCaption?`<p style="font-size:15px;margin:0">${esc(p.coverCaption)}</p>`:""}<div class="dsec">${(p.sections||[]).map(b=>{const h=blockHTML(b,col);return h&&(WIDE.includes(b.type)||b.stack)?h.replace('<div class="blk','<div class="blk span'):h}).join("")}</div>${links}${pager}</div>`;
+  if(!pd.open)pd.showModal(); pd.scrollTop=0; history.replaceState(null,"","#project-"+(i+1));
+}
+document.addEventListener("click",e=>{
+  const pr=e.target.closest(".proj"); if(pr){lastBtn=pr;openProject(+pr.dataset.i);return}
+  const go=e.target.closest("[data-go]"); if(go){openProject(+go.dataset.go);return}
+  const g=e.target.closest(".zoom"); if(g){{const im=g.querySelector("img");$("#lbimg").src=im?(im.currentSrc||im.src):""}$("#lbimg").alt=g.dataset.cap||"Project image";$("#lbcap").textContent=g.dataset.cap;lb.showModal();return}
+  if(e.target.closest("[data-close]")){e.target.closest("dialog").close();return}
+  if(e.target.tagName==="DIALOG")e.target.close();
+});
+pd.addEventListener("close",()=>{history.replaceState(null,"","#projects");lastBtn&&lastBtn.focus()});
+
+const R=SITE.resumePdf, dl=$("#dl");
+function showResume(ok){
+  if(ok){dl.href=R;dl.setAttribute("download","Matteo-Musso-Resume.pdf");dl.removeAttribute("aria-disabled");$("#newtab").href=R;$("#newtab").hidden=false;$("#rbox").innerHTML=`<iframe src="${esc(R)}#view=FitH&toolbar=0&navpanes=0" title="Matteo Musso resume"></iframe>`}
+  else{dl.href="#resume";dl.removeAttribute("download");dl.setAttribute("aria-disabled","true");$("#newtab").hidden=true;$("#rbox").innerHTML=`<div class="empty"><h3 style="font-size:26px;margin-bottom:10px">Resume not added yet</h3><p>Put your PDF in the <code>resume</code> folder and name it <code>Matteo-Musso-Resume.pdf</code>. It will show here and the Download button will work automatically.</p></div>`}}
+showResume(false);
+fetch(R,{method:"HEAD"}).then(r=>showResume(r.ok&&/pdf/i.test(r.headers.get("content-type")||""))).catch(()=>showResume(location.protocol==="file:"));
+
+const main=$("#page-main"), rv=$("#resume-view"), links=[...document.querySelectorAll("[data-nav]")];
+const setActive=n=>links.forEach(a=>n===a.dataset.nav?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current"));
+function route(){
+  const h=location.hash;
+  if(h==="#resume"){main.hidden=true;rv.hidden=false;setActive("resume");scrollTo(0,0);document.title="Resume | Matteo Musso";return}
+  document.title="Matteo Musso | Mechanical Engineering Student";
+  if(!rv.hidden){rv.hidden=true;main.hidden=false;if(h&&/^#[a-z]+$/.test(h)&&$(h))setTimeout(()=>$(h).scrollIntoView(),0)}
+  if(/^#project-\d+$/.test(h)){const i=+h.split("-")[1]-1;if(PROJECTS[i]&&!pd.open)openProject(i)}
+}
+addEventListener("hashchange",route); route();
+const io=null;
+let lock=0,tk=0,lt=0;
+const secs=["home","projects","about"].map(id=>$("#"+id));
+function spy(){
+  if(!rv.hidden||lock)return;
+  const atEnd=innerHeight+scrollY>=document.documentElement.scrollHeight-6;
+  let a="home";
+  if(atEnd||$("#contact").getBoundingClientRect().top<=140)a="contact";
+  else secs.forEach(s=>{if(s.getBoundingClientRect().top<=innerHeight*.45)a=s.dataset.sec});
+  setActive(a)}
+addEventListener("scroll",()=>{if(!tk){tk=1;requestAnimationFrame(()=>{tk=0;spy()})}},{passive:true});
+addEventListener("scrollend",()=>{lock=0;spy()});
+$("#nav").addEventListener("click",e=>{const a=e.target.closest("[data-nav]");if(a&&a.dataset.nav!=="resume"){setActive(a.dataset.nav);lock=1;clearTimeout(lt);lt=setTimeout(()=>{lock=0;spy()},1400)}});
+if(location.hash!=="#resume")spy();
+
+const mb=$(".menu"), nav=$("#nav");
+mb.addEventListener("click",()=>{const o=nav.classList.toggle("open");mb.setAttribute("aria-expanded",o)});
+nav.addEventListener("click",e=>{if(e.target.closest("a")){nav.classList.remove("open");mb.setAttribute("aria-expanded","false")}});
+</script>
+</body>
+</html>
