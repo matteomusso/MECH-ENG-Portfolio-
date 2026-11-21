@@ -336,7 +336,7 @@ const SECTIONS=[
   TS("Setbacks and fixes",["The cabinet's small footprint and low weight made it slide around too easily during gameplay. The printed parts are PLA, which has a low coefficient of static friction (around 0.2 to 0.4), so I added rubber feet to raise it to around 0.7 to 0.95. This anchored the machine firmly in place during play.", "The machine also had to be split into pieces so it could be 3D printed and then put back together. I connected the pieces with dovetail joints, designed with a friction-fit tolerance of 0.1 mm so the parts press together and hold each other in place. Getting that tolerance right mattered, because a joint that is too loose rattles and one that is too tight is hard to assemble. Dovetails also keep the pieces aligned, so the finished cabinet lines up the way it did in the CAD model.", "I also noticed heat issues while running larger games, so I added ventilation holes in the sides of the machine along with internally mounted fans to circulate the air. The fans move the hot air through the cabinet and carry heat away from the electronics as they exit through the ventilation holes."]),
   {type:"gallery",columns:3,images:[{src:S(2,"rubber-feet"),caption:"Rubber feet added to the bottom of the cabinet to increase friction."},{src:S(2,"dovetail-1"),caption:"Dovetail connection joining two sections of the cabinet."},{src:S(2,"ventilation"),caption:"Ventilation holes cut into the side of the cabinet."}]},
   TS("Final assembly and takeaways",["The result is a complete retro arcade machine built from my own plans, from the first sketch to the finished cabinet. It captures the look of classic arcade cabinets in a compact, desktop-sized design. I learned how to plan a full assembly in CAD, work within a set budget, account for how tolerances affect fit, and why building in stages makes problems easier to identify and fix. The project also showed me how important user experience is, with factors like height and reach playing a key role in the design."]),
-  V("","A look at the arcade machine in action."),
+  {type:"video",heading:"",src:"videos/arcade-demo.mp4",poster:"images/project-2/video-poster.jpg",portrait:true,caption:"A look at the arcade machine in action.",width:"small",align:"center"},
   {type:"list",heading:"Tools and components",items:["CAD modelling", "Cutting and shaping tools", "Fasteners and hardware", "Screen and controls"]}],
 
  /* 3 */ ()=>[
@@ -472,7 +472,7 @@ function vid(v,col){
   const y=v.src.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([\w-]{11})/), m=v.src.match(/vimeo\.com\/(\d+)/), t=esc(v.caption||"Project video");
   if(y)return `<iframe src="https://www.youtube-nocookie.com/embed/${y[1]}" title="${t}" loading="lazy" allowfullscreen></iframe>`;
   if(m)return `<iframe src="https://player.vimeo.com/video/${m[1]}" title="${t}" loading="lazy" allowfullscreen></iframe>`;
-  return `<video controls preload="metadata" playsinline ${v.poster?`poster="${esc(v.poster)}"`:""} src="${esc(v.src)}"></video>`}
+  return `<video controls preload="metadata" playsinline ${v.portrait?'style="aspect-ratio:9/16"':""} ${v.poster?`poster="${esc(v.poster)}"`:""} src="${esc(v.src)}"></video>`}
 const WIDE=["image","gallery","video","split","wrap","list","pair"];
 const wcls=b=>`w-${b.width||"full"} al-${b.align||"left"}`;
 function blockHTML(b,col){
